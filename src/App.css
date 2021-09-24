@@ -1,0 +1,350 @@
+body {
+  background: #fda63c;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #f83600, #fda63c);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #f83600, #fda63c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+  
+  color: whitesmoke;
+}
+
+main {
+  position: relative;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+h1 {
+  font-feature-settings: normal;
+  font-variant: small-caps;
+  font-size: 4.5rem;
+}
+
+
+h2 {
+  font-feature-settings: normal;
+  font-variant: small-caps;
+}
+
+h5 {
+  font-feature-settings: normal;
+  font-variant: small-caps;
+}
+
+input {
+  background-color: #ffffffc2;
+  border: none;
+  width: 10rem;
+  padding: 0.4rem 0.4rem 0.4rem 0.7rem;
+  border-radius: 25px;
+  box-shadow: 0 0 5px #8080809e;
+  transition: all 0.4s;
+  color: rgb(216 110 0);
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+select {
+  border: none;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8080809e;
+  background-color: #ffffffdb;
+}
+
+input::placeholder {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.384);
+}
+
+input:focus {
+  transition: 0.4s;
+  width: 15rem;
+}
+
+.button-add {
+  background-color: #ffffffc2;
+  border: none;
+  font-size: 18px;
+  margin-left: -33px;
+  border-radius: 25px;
+  color: #cc826e;
+  box-shadow: 0 0 5px #8080809e;
+}
+
+.next {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 2rem;
+  margin: 0 1rem;
+  font-feature-settings: normal;
+  font-variant: small-caps;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.788);
+  color: rgb(233, 73, 100);
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.808);
+}
+
+.pass {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 3rem;
+  font-feature-settings: normal;
+  font-variant: small-caps;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.788);
+  color: rgb(233, 73, 100);
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.808);
+  transition: 0.1s all;
+}
+
+.pass:active {
+  padding:0 ;
+}
+
+.good {
+  border: none;
+  padding: 0.7rem 1rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  font-feature-settings: normal;
+  font-variant: small-caps;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.788);
+  color: green;
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.808);
+  transition: 0.1s all;
+}
+
+.good:active {
+  padding:0 ;
+}
+
+.random p {
+  text-shadow: 0 5px 5px rgba(105, 7, 7, 0.267);
+}
+
+.random {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  font-size: 3rem;
+  background: #ffe259;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-variant: small-caps;
+  font-feature-settings: normal;
+  font-weight: 500;
+  animation-name: randomPop;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  box-shadow: 0 0 20px #3f1f1f70;
+}
+
+@keyframes randomPop {
+  0% {width: 15rem; height: 15rem; font-size: 3rem; box-shadow: 0 0 20px #3f1f1f70;}
+  100% {width: 16rem; height: 16rem; font-size: 3.2rem; box-shadow: 0 0 10px #3f1f1f70;}
+}
+
+.start-round {
+  border: solid #b10f0f;
+  background: #FF5F6D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top left, #FFC371, #FF5F6D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top left, #FFC371, #FF5F6D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 20rem;
+  height: 20rem;
+  font-size: 4rem;
+  color: #ffe1e1;
+  font-variant: small-caps;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #3f1f1f70;
+  font-feature-settings: normal;
+  font-weight: 700;
+  animation-name: startPop;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.start-round p {
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.384);
+}
+
+.start-round:focus {
+  outline: none;
+}
+
+@keyframes startPop {
+  0% {width: 20rem; height: 20rem; font-size: 4rem; box-shadow: 0 0 20px #3f1f1f70;}
+  100% {width: 21rem; height: 21rem; font-size: 4.5rem; box-shadow: 0 0 10px #3f1f1f70;}
+}
+
+.team-box {
+  background-color: rgb(255 255 0 / 37%);
+  border-radius: 10px;
+  box-shadow: 0 0 5px #80808096;
+  width: 8rem;
+}
+
+.team-name {
+  width: 18rem;
+}
+
+.team-box p {
+  text-transform: capitalize;
+}
+
+.arrow-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  transition: all 0.7s;
+}
+
+.arrow-right {
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: all 0.7s;
+}
+
+.arrow-right p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  margin-right: 0.7rem;
+}
+
+.upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+}
+
+.mid-upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.logo {
+  border-radius: 50%;
+  box-shadow: 0 0 20px #231f1f;
+  width: 20rem;
+  animation-name: imgPop;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes imgPop {
+  0% {width: 20rem; box-shadow: 0 0 20px #231f1f;}
+  100% {width: 21rem; box-shadow: 0 0 10px #231f1f;}
+}
+
+.fade-in {
+  opacity: 0;
+  margin-top: 10rem;
+  animation-name: fadeIn;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0; margin-top: 10rem;}
+  100% {opacity: 1; margin-top: 0rem;}
+}
+
+.fade-in-left {
+  opacity: 0;
+  margin-right: 10rem;
+  animation-name: fadeInRight;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInRight {
+  0% {opacity: 0; margin-right: 10rem;}
+  100% {opacity: 1; margin-right: 0rem;}
+}
+
+.fade-out-img {
+  opacity: 1;
+  animation-name: fadeOutImg;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeOutImg {
+  0% {opacity: 1; width: 20rem;}
+  60% {opacity: 0.8; width: 5rem;}
+  100% {opacity: 0; width: 80rem;}
+}
+
+.fade-out {
+  opacity: 1;
+  animation-name: fadeOut;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.fade-out-up {
+  opacity: 1;
+  margin-bottom: 0rem;
+  animation-name: fadeOutUp;
+  animation-duration: 0.7s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeOutUp {
+  0% {opacity: 1; margin-top: 0rem;}
+  100% {opacity: 0; margin-top: -10rem;}
+}
+
+.fade-out-start {
+  opacity: 1;
+  animation-name: fadeOutStart;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeOutStart {
+  0% {opacity: 1; width: 20rem; height: 20rem;}
+  100% {opacity: 0.5; width: 15rem; height: 15rem;}
+}
+
+.App {
+  text-align: center;
+}
+
+

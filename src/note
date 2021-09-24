@@ -1,0 +1,183 @@
+<section>
+                    { this.state.displayStartImage
+                        ? <div onClick={this.displayInputTeam} className="start-img center">
+                            <img className="logo" src="brot.png" alt="logo"/>
+                          </div>
+                        
+                        : <div>
+                            { this.state.displayCreateTeam
+                                ? <div id="team_name" className="team-name mx-auto mid-upper fade-in">
+                                    <div className="d-flex flex-column">
+                                        <div className="flex-column">
+                                            <h2>Créer les équipes</h2> 
+                                            <input className="mt-3" placeholder={'Equipe ' + this.state.teamNumber} id="put-team" type="text" value={this.state.newTeamName} onChange={this.enterNewTeamName}/>
+                                            <button className="button-add" type="button" onClick={this.pushTeamName}>
+                                                <i className="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                        <div className="team-table row flex-wrap mt-5">
+                                            {this.state.teamBox}
+                                        </div>
+                                    </div>
+                                  </div>
+
+                                : <div >
+                                    { this.state.displayInputWord
+                                        ? <div id="input_word" className="fade-in mid-upper d-flex flex-column">
+                                            <div className="select-number">
+                                                <h2>Choisi le nombre de joueur</h2>
+                                                <select className="ml-2 mb-4" value={this.state.playerNumberValue} onChange={this.selectPlayerNumber} name="number-player" id="number-player">
+                                                    {this.displayPlayerNumber(4, 20)}
+                                                </select>
+                                            </div>
+
+                                            <div className="push">
+                                                <input type="text" value={this.state.newWord} placeholder="Ajoute un mot" onChange={this.enterNewWord}></input>
+                                                <button className="mb-2 button-add" type="button" onClick={this.pushNewWord}>
+                                                    <i className="fas fa-plus"></i>
+                                                </button>
+                                                <p>Nombre de mot : {this.state.dataWordsTable.length} / {this.state.playerNumberValue * 5}</p>
+                                            </div>
+                                          </div> 
+                                          
+                                        : <div>
+                                            { this.state.displayStartGame
+                                                ? <div id="start_game" className="center fade-in d-flex flex-column">
+                                                    <div>
+                                                        <button className="start-round" onClick={this.displayRandomWord}>
+                                                            Start
+                                                        </button>                                                        
+                                                    </div>
+                                                  </div>
+
+                                                : <div>
+                                                    { this.state.timer < this.state.gameTime || this.state.gameWordsTable.length === 0
+                                                        ? <div>
+                                                            <p>
+                                                                {this.state.displayTeamName}
+                                                            </p>
+                                                            <p>
+                                                                {this.state.displayTeamPoints}
+                                                            </p>
+                                                            <p>
+                                                                {this.state.randomWord}
+                                                            </p>
+                                                            <p>
+                                                                {this.state.timer}
+                                                            </p>
+                                                          </div>
+
+                                                        : <div>
+                                                            <p>Round fini !</p>
+                                                            { this.state.countNbrTeam === this.state.teamsNameTable.length && this.state.gameWordsTable.length === 0
+                                                                ? <button onClick={this.newPhase}>Passer à la phase suivate</button>
+
+                                                                : <div>
+                                                                    { this.state.countNbrTeam === this.state.teamsNameTable.length 
+                                                                        ? <div>
+                                                                            <p>Il en reste encore {this.state.gameWordsTable.length}</p>
+                                                                            <button onClick={this.continueRound}>OK</button>
+                                                                        </div>
+                                                                    
+                                                                        : <button onClick={this.displayRandomWord}> Equipe suivante : {this.state.teamsNameTable[this.state.teamNumberForName]}</button>
+                                                                    }
+                                                                    
+                                                                    { this.state.displayNextTeamButton
+                                                                        ? <button onClick={this.displayRandomWord}> Equipe suivante : {this.state.teamsNameTable[this.state.teamNumberForName]}</button>
+
+                                                                        : ''
+                                                                    }                                                               
+                                                                </div>                                                           
+                                                            }
+                                                        </div> 
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>                       
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                                }
+                            </section>
+
+
+
+
+
+                            
+
+
+                        ? <div>
+                            { this.state.timer < this.state.gameTime || this.state.gameWordsTable.length === 0
+                                ? <div className="mid-upper fade-in d-flex flex-column">
+                                    <h1 className="mb-5">{this.state.displayTeamName}</h1>
+                                    <div>
+                                        <h5 className="mb-2">Points : {this.state.displayTeamPoints}</h5>
+                                        <div className="random">
+                                            <p className="pt-5">{this.state.randomWord}</p>
+                                        </div>
+                                        <h2>{this.state.gameTime - this.state.timer} S</h2>
+                                    </div>
+                                    <button className="next mt-5 row" onClick={this.onGameChangeWord}>Suivant {'>>'} </button>
+                                  </div>
+
+                                : <div className="mid-upper fade-in d-flex flex-column">
+                                    <h2 className="mb-5">Round fini !</h2>
+                                    { this.state.countNbrTeam === this.state.teamsNameTable.length && this.state.gameWordsTable.length === 0
+                                        ? <button className="next" onClick={this.newPhase}>Passer à la phase suivate</button>
+
+                                        : <div>
+                                            { this.state.countNbrTeam === this.state.teamsNameTable.length 
+                                                ? <div>
+                                                    <p>Il en reste encore {this.state.gameWordsTable.length}</p>
+                                                    <button className="next" onClick={this.continueRound}>OK</button>
+                                                </div>
+                                            
+                                                : <div>
+                                                    <h2> {this.state.displayTeamPoints} Points pour la team {this.state.teamsNameTable[this.state.teamNumberForName - 1]}</h2>
+                                                    <button className="next mt-5" onClick={this.displayRandomWord}> Equipe suivante {'->'} {this.state.teamsNameTable[this.state.teamNumberForName]}</button>
+                                                  </div> 
+
+                                            }
+                                            
+                                            {/* { this.state.displayNextTeamButton
+                                                ? <button className="next mt-5" onClick={this.displayRandomWord}> Equipe suivante : {this.state.teamsNameTable[this.state.teamNumberForName]}</button>
+
+                                                : ''
+                                            }                                                                */}
+                                        </div>                                                           
+                                    }
+                                </div> 
+                            }
+                                </div>
+
+                                : ''
+                            }
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div className="mid-upper fade-in d-flex flex-column">
+                                                    { this.state.displayNextRound
+                                                        ? <div>
+                                                            <h1>Round {this.state.countRound}</h1>
+                                                            <button className="next mt-5" onClick={this.displayStart}>GO</button>
+                                                          </div>
+
+                                                        : <div className="mid-upper fade-in d-flex flex-column">
+                                                                                                                      
+                                                            <button className="next mb-3" onClick={this.displayScore}> {this.state.countRound === 1 ? <p>Score</p> : <p>Actualiser le Score</p>}</button>
+                                                            {this.state.boxScore}
+                                                            <button className="next" onClick={this.newPhase}>Passer à la phase suivante</button>
+                                                        </div>
+                                                    }
+                                                  </div>
